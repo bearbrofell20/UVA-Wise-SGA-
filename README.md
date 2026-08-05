@@ -79,14 +79,21 @@ no frameworks required.
 
 ## Notes
 
-- Officers, senators, committees, mission, and event names reflect the
-  **2026–2027 UVA Wise SGA** (sourced from the SGA's own materials). Member
-  **photos** are not yet included — each card currently shows the member's
-  initials as a placeholder avatar until photos are added.
-- Specific **event dates and times** are shown as seasonal placeholders
-  (e.g., "Fall '26"); they are confirmed each semester.
-- Some contact details (e.g., the `sga@uvawise.edu` address, office location)
-  should be verified against the SGA's current information before launch.
+- Officers, senators, committees, mission, meeting time, office location,
+  phone number, advisor, and event names reflect the **2026–2027 UVA Wise SGA**,
+  sourced from the SGA's own materials and the College's official SGA webpage
+  (Fridays at 1 p.m. in the Dogwood Room; office on the 3rd floor of the Slemp
+  Student Center; 276-328-0213; advisor Mikaela Logan).
+- Member **photos** are not yet included — each card shows the member's initials
+  as a placeholder avatar until photos are added.
+- The logo in `assets/logo.svg` is a clean SVG **recreation** of the SGA's
+  column-capital mark (navy on white), matching the official navy/red/white
+  identity. To use the exact official artwork, drop a `.png` or `.svg` export
+  into `assets/` and update the `<img src>` references.
+- Specific **event dates** (other than the weekly Friday meeting) are shown as
+  seasonal labels (e.g., "Fall '26") and are confirmed each semester.
+- The contact form is front-end only; see "Editing content" above to connect it
+  to a form service.
 - The site is responsive (works on phones, tablets, and desktops) and built with
   accessibility in mind (skip link, semantic landmarks, keyboard-friendly nav,
   and reduced-motion support).
