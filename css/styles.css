@@ -1,25 +1,29 @@
 /* =====================================================================
    UVA Wise SGA — Design System & Styles
-   Palette: Cardinal Red (primary), Highland Navy (secondary), Gold (accent)
+   Palette: Dark Blue (primary), Cardinal Red (accent), White, Black
    ===================================================================== */
 
 :root {
   /* Brand colors */
-  --red: #C8102E;
-  --red-dark: #9E0C24;
-  --navy: #0B2545;
+  --navy: #0A1F44;        /* dark blue — primary */
   --navy-light: #13315C;
-  --gold: #F2A900;
-  --gold-dark: #C98A00;
+  --red: #C8102E;         /* cardinal red — accent */
+  --red-dark: #9E0C24;
+  --black: #0C1017;       /* near-black */
+
+  /* "gold" tokens retained as names but remapped to the new palette:
+     used for accents on dark grounds (now white) */
+  --gold: #FFFFFF;
+  --gold-dark: #E2E7EF;
 
   /* Neutrals */
-  --ink: #16202E;
-  --slate: #4A5768;
-  --muted: #6B7788;
-  --line: #E3E8EF;
+  --ink: #10151D;
+  --slate: #414B59;
+  --muted: #66707E;
+  --line: #E1E6EE;
   --bg: #FFFFFF;
-  --bg-soft: #F6F8FB;
-  --bg-tint: #FBFCFE;
+  --bg-soft: #F5F7FB;
+  --bg-tint: #FAFBFE;
   --white: #FFFFFF;
 
   /* Typography */
@@ -72,7 +76,7 @@ h3 { font-size: 1.3rem; }
 p { margin: 0 0 1rem; }
 
 :focus-visible {
-  outline: 3px solid var(--gold);
+  outline: 3px solid var(--red);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -139,8 +143,8 @@ p { margin: 0 0 1rem; }
 .btn--primary:hover { background: var(--red-dark); color: #fff; }
 .btn--ghost { background: transparent; color: var(--navy); border-color: var(--navy); }
 .btn--ghost:hover { background: var(--navy); color: #fff; }
-.btn--gold { background: var(--gold); color: var(--navy); }
-.btn--gold:hover { background: var(--gold-dark); color: var(--navy); }
+.btn--gold { background: var(--red); color: #fff; box-shadow: 0 8px 20px rgba(200, 16, 46, 0.28); }
+.btn--gold:hover { background: var(--red-dark); color: #fff; }
 .btn--light { background: #fff; color: var(--navy); }
 .btn--light:hover { background: #f0f0f0; color: var(--navy); }
 .btn--outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.6); }
@@ -279,8 +283,8 @@ p { margin: 0 0 1rem; }
 .hero {
   position: relative;
   background:
-    linear-gradient(135deg, rgba(11, 37, 69, 0.92), rgba(158, 12, 36, 0.86)),
-    radial-gradient(circle at 80% 20%, rgba(242, 169, 0, 0.35), transparent 55%);
+    linear-gradient(135deg, rgba(10, 31, 68, 0.94), rgba(158, 12, 36, 0.82)),
+    radial-gradient(circle at 82% 18%, rgba(200, 16, 46, 0.45), transparent 55%);
   background-color: var(--navy);
   color: #fff;
   overflow: hidden;
@@ -317,7 +321,7 @@ p { margin: 0 0 1rem; }
   position: absolute;
   right: -60px; top: -60px;
   width: 260px; height: 260px;
-  background: radial-gradient(circle, rgba(242,169,0,0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(200,16,46,0.5), transparent 70%);
 }
 .page-hero .container { position: relative; padding-block: clamp(2.5rem, 6vw, 4rem); }
 .page-hero h1 { color: #fff; margin-bottom: 0.3em; }
@@ -361,7 +365,7 @@ p { margin: 0 0 1rem; }
 }
 .card .icon svg { width: 26px; height: 26px; }
 .card--alt .icon { background: linear-gradient(135deg, var(--navy), var(--navy-light)); }
-.card--gold .icon { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy); }
+.card--gold .icon { background: linear-gradient(135deg, #232B39, var(--black)); color: #fff; }
 
 /* Stats */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
@@ -441,11 +445,11 @@ p { margin: 0 0 1rem; }
   font-weight: 700;
   color: #fff;
   background: linear-gradient(135deg, var(--navy), var(--navy-light));
-  border: 3px solid var(--gold);
+  border: 3px solid var(--navy);
 }
 .officer:nth-child(3n+1) .avatar { background: linear-gradient(135deg, var(--red), var(--red-dark)); }
 .officer:nth-child(3n+2) .avatar { background: linear-gradient(135deg, var(--navy), var(--navy-light)); }
-.officer:nth-child(3n) .avatar { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--navy); }
+.officer:nth-child(3n) .avatar { background: linear-gradient(135deg, var(--navy-light), var(--red-dark)); }
 .officer h3 { margin: 0 0 0.15rem; font-size: 1.2rem; }
 .officer .role { color: var(--red); font-weight: 700; font-size: 0.92rem; margin-bottom: 0.6rem; }
 .officer .bio { font-size: 0.92rem; color: var(--muted); margin: 0; }
@@ -487,8 +491,8 @@ p { margin: 0 0 1rem; }
   letter-spacing: 0.06em;
   padding: 0.3rem 0.7rem;
   border-radius: 999px;
-  background: rgba(242,169,0,0.16);
-  color: var(--gold-dark);
+  background: rgba(200, 16, 46, 0.1);
+  color: var(--red-dark);
   white-space: nowrap;
 }
 @media (max-width: 640px) {

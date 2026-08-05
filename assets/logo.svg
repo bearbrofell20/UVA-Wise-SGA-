@@ -2,18 +2,18 @@
   <defs>
     <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#13315C"/>
-      <stop offset="1" stop-color="#0B2545"/>
+      <stop offset="1" stop-color="#0A1F44"/>
     </linearGradient>
   </defs>
   <!-- Shield -->
   <path d="M50 4 L90 16 V48 C90 74 72 90 50 96 C28 90 10 74 10 48 V16 Z"
-        fill="url(#shield)" stroke="#F2A900" stroke-width="3"/>
+        fill="url(#shield)" stroke="#C8102E" stroke-width="3"/>
   <!-- Chevron band -->
   <path d="M14 40 H86 V52 H14 Z" fill="#C8102E"/>
   <path d="M50 20 L74 34 H26 Z" fill="#C8102E"/>
   <!-- Star -->
   <path d="M50 58 l4.5 9.2 10.1 1.5 -7.3 7.1 1.7 10.1 -9-4.7 -9 4.7 1.7-10.1 -7.3-7.1 10.1-1.5 Z"
-        fill="#F2A900"/>
+        fill="#FFFFFF"/>
   <!-- Letters -->
   <text x="50" y="45" text-anchor="middle" font-family="Georgia, serif" font-weight="700"
         font-size="17" fill="#FFFFFF" letter-spacing="1">SGA</text>

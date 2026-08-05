@@ -68,8 +68,9 @@ no frameworks required.
   photo `<img>` if you'd like.
 - **Add or change events:** copy an `.event` block in `events.html` (and the
   preview on `index.html`) and update the date, title, and details.
-- **Colors and branding:** all brand colors live in the `:root` variables at the
-  top of `css/styles.css` (`--red`, `--navy`, `--gold`).
+- **Colors and branding:** the palette is **dark blue, red, white, and black**,
+  defined as `:root` variables at the top of `css/styles.css` (`--navy`, `--red`,
+  `--black`; white is the page background).
 - **Contact form:** the form in `contact.html` currently shows a friendly
   confirmation message on the front end only — it does **not** send email yet.
   To make it deliver messages, connect it to a form service (e.g. Formspree,
@@ -78,8 +79,14 @@ no frameworks required.
 
 ## Notes
 
-- Officer names, event dates, and statistics are **placeholder content** meant to
-  be replaced with real information from the current SGA.
+- Officers, senators, committees, mission, and event names reflect the
+  **2026–2027 UVA Wise SGA** (sourced from the SGA's own materials). Member
+  **photos** are not yet included — each card currently shows the member's
+  initials as a placeholder avatar until photos are added.
+- Specific **event dates and times** are shown as seasonal placeholders
+  (e.g., "Fall '26"); they are confirmed each semester.
+- Some contact details (e.g., the `sga@uvawise.edu` address, office location)
+  should be verified against the SGA's current information before launch.
 - The site is responsive (works on phones, tablets, and desktops) and built with
   accessibility in mind (skip link, semantic landmarks, keyboard-friendly nav,
   and reduced-motion support).
