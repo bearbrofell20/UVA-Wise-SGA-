@@ -4,6 +4,10 @@
 (function () {
   "use strict";
 
+  /* ---- Enable JS-only enhancements (scroll-reveal). Without this class,
+     .reveal content stays fully visible for no-JS robustness. ---- */
+  document.documentElement.classList.add("js");
+
   /* ---- Mobile navigation ---- */
   var toggle = document.querySelector(".nav-toggle");
   var links = document.getElementById("nav-links");
