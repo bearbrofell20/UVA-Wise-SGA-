@@ -309,51 +309,58 @@ p { margin: 0 0 1rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.8rem; }
 
 /* =====================================================================
-   Campus photo banner (full-bleed strip of images)
+   Campus photo banner (single full-bleed panoramic image)
    ===================================================================== */
-.photo-band {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3px;
-  background: var(--navy);
-}
-@media (max-width: 900px) { .photo-band { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .photo-band { grid-template-columns: 1fr 1fr; } }
-.photo-tile {
+.photo-banner {
   position: relative;
-  height: clamp(180px, 24vw, 280px);
+  height: clamp(240px, 34vw, 440px);
   overflow: hidden;
   display: grid;
   place-items: center;
-  background: linear-gradient(160deg, var(--navy), var(--navy-light));
+  background: linear-gradient(135deg, var(--navy), var(--red-dark));
+  border-top: 4px solid var(--red);
 }
-.photo-tile:nth-child(2) { background: linear-gradient(160deg, var(--red-dark), var(--red)); }
-.photo-tile:nth-child(3) { background: linear-gradient(160deg, var(--navy-light), var(--red-dark)); }
-.photo-tile:nth-child(4) { background: linear-gradient(160deg, var(--navy), var(--red-dark)); }
-.photo-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo-tile .ph {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.82);
-  padding: 1rem;
-}
-.photo-tile .ph svg { width: 38px; height: 38px; opacity: 0.85; margin-bottom: 0.5rem; }
-.photo-tile .ph span {
+.photo-banner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
 }
-.photo-band-label {
-  background: var(--navy);
+/* Caption chip sits on top of the photo */
+.photo-banner .caption {
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 31, 68, 0.72);
   color: #fff;
-  text-align: center;
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-weight: 700;
-  border-bottom: 3px solid var(--red);
+  backdrop-filter: blur(4px);
+}
+/* Placeholder shown until a photo is added */
+.photo-banner .ph {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 1rem;
+  z-index: 2;
+}
+.photo-banner .ph svg { width: 46px; height: 46px; opacity: 0.85; margin-bottom: 0.6rem; }
+.photo-banner .ph strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+.photo-banner .ph span {
+  display: block;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 /* Page header (interior pages) */

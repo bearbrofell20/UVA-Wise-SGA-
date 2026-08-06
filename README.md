@@ -68,12 +68,12 @@ no frameworks required.
   photo `<img>` if you'd like.
 - **Add or change events:** copy an `.event` block in `events.html` (and the
   preview on `index.html`) and update the date, title, and details.
-- **Campus photo banner (home page):** the "Life at UVA Wise" strip on
-  `index.html` has four placeholder tiles. Replace the placeholder inside each
-  `<div class="photo-tile">…</div>` with an image, e.g.
-  `<div class="photo-tile"><img src="assets/campus/library.jpg" alt="UVA Wise library" /></div>`.
-  Put the photos in `assets/campus/`. Landscape images around 800×600 or larger
-  work best (they're cropped to fill).
+- **Campus photo banner (home page):** the `<section class="photo-banner">` on
+  `index.html` is a single full-width panoramic slot. Replace the `<span class="ph">…</span>`
+  placeholder with an image, e.g.
+  `<img src="assets/campus/banner.jpg" alt="The UVA Wise campus" />`.
+  Put the photo in `assets/campus/`. A wide landscape image (roughly 1600×600 or
+  larger) works best — it's cropped to fill the banner.
 - **Colors and branding:** the palette is **dark blue, red, white, and black**,
   defined as `:root` variables at the top of `css/styles.css` (`--navy`, `--red`,
   `--black`; white is the page background).
