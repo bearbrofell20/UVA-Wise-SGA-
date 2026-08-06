@@ -328,19 +328,26 @@ p { margin: 0 0 1rem; }
   object-fit: cover;
   display: block;
 }
-/* Caption chip sits on top of the photo */
+/* Caption chip sits on top of the photo, bottom-center */
 .photo-banner .caption {
-  position: relative;
+  position: absolute;
   z-index: 2;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(10, 31, 68, 0.72);
   color: #fff;
   padding: 0.5rem 1.3rem;
   border-radius: 999px;
   font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   font-weight: 700;
   backdrop-filter: blur(4px);
+  white-space: nowrap;
+  max-width: calc(100% - 2rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /* Placeholder shown until a photo is added */
 .photo-banner .ph {
