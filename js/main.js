@@ -71,21 +71,61 @@
     el.textContent = new Date().getFullYear();
   });
 
-  /* ---- Contact form (front-end only demo handler) ---- */
+  /* ---- Contact form: only @uvawise.edu addresses may send, and the
+     message is routed to the SGA president's inbox. ---- */
   var form = document.getElementById("contact-form");
   if (form) {
+    var SGA_EMAIL = "sgapresident@uvawise.edu";
+    var emailField = form.querySelector("#email");
+    var nameField = form.querySelector("#name");
+    var msgField = form.querySelector("#message");
+    var topicField = form.querySelector("#topic");
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var status = document.getElementById("form-status");
+    var hint = document.getElementById("email-hint");
+
+    function isUvawise(v) { return /@uvawise\.edu$/i.test((v || "").trim()); }
+    function ready() {
+      return (nameField && nameField.value.trim()) &&
+             (msgField && msgField.value.trim()) &&
+             isUvawise(emailField && emailField.value);
+    }
+    function refresh() {
+      var val = emailField ? emailField.value : "";
+      if (val && !isUvawise(val)) {
+        emailField.classList.add("invalid");
+        if (hint) { hint.innerHTML = "Please use your <strong>@uvawise.edu</strong> email address."; hint.className = "form-note err"; }
+      } else {
+        if (emailField) emailField.classList.remove("invalid");
+        if (hint) { hint.innerHTML = "Only <strong>@uvawise.edu</strong> email addresses can send a message."; hint.className = "form-note"; }
+      }
+      if (submitBtn) submitBtn.disabled = !ready();
+    }
+    ["input", "change", "keyup", "blur"].forEach(function (ev) {
+      form.addEventListener(ev, refresh, true);
+    });
+    refresh();
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var status = document.getElementById("form-status");
-      var name = (form.querySelector("#name") || {}).value || "";
+      if (!isUvawise(emailField && emailField.value)) {
+        if (status) { status.textContent = "Only @uvawise.edu email addresses can send a message."; status.className = "form-status err"; }
+        if (emailField) emailField.focus();
+        return;
+      }
+      var name = nameField ? nameField.value.trim() : "";
+      var topic = topicField && topicField.value ? topicField.value : "Message";
+      var message = msgField ? msgField.value.trim() : "";
+      var subject = "SGA Website: " + topic + (name ? " from " + name : "");
+      var body = "Name: " + name + "\nEmail: " + emailField.value.trim() +
+                 "\nTopic: " + topic + "\n\n" + message;
+      window.location.href = "mailto:" + SGA_EMAIL +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
       if (status) {
-        status.textContent =
-          "Thanks" + (name ? ", " + name.split(" ")[0] : "") +
-          "! Your message has been noted. This form isn't wired up to send yet. " +
-          "Reach us at 276-328-0213 or on Facebook (UVa-Wise SGA), or stop by a Friday meeting.";
+        status.textContent = "Opening your email app to send to " + SGA_EMAIL + ".";
         status.className = "form-status ok";
       }
-      form.reset();
     });
   }
 })();

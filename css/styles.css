@@ -713,7 +713,11 @@ p { margin: 0 0 1rem; }
   box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.12);
 }
 .field textarea { min-height: 140px; resize: vertical; }
+.field input.invalid { border-color: var(--red); box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.12); }
+.btn:disabled, .btn[disabled] { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+.btn:disabled:hover, .btn[disabled]:hover { transform: none; }
 .form-note { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+.form-note.err { color: var(--red); font-weight: 600; }
 .form-status { margin-top: 1rem; font-weight: 600; }
 .form-status.ok { color: #1a7a3d; }
 .form-status.err { color: var(--red); }
