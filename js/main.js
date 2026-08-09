@@ -81,8 +81,8 @@
       if (status) {
         status.textContent =
           "Thanks" + (name ? ", " + name.split(" ")[0] : "") +
-          "! Your message has been noted. This form isn't wired up to send yet — " +
-          "reach us at 276-328-0213 or on Facebook (UVa-Wise SGA), or stop by a Friday meeting.";
+          "! Your message has been noted. This form isn't wired up to send yet. " +
+          "Reach us at 276-328-0213 or on Facebook (UVa-Wise SGA), or stop by a Friday meeting.";
         status.className = "form-status ok";
       }
       form.reset();
