@@ -486,6 +486,22 @@ p { margin: 0 0 1rem; }
 /* =====================================================================
    Officer / member cards
    ===================================================================== */
+/* Group / board photo */
+.board-photo { margin: 0 0 2.75rem; }
+.board-photo img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  display: block;
+}
+.board-photo figcaption {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 0.9rem;
+  font-style: italic;
+}
+
 .officer {
   text-align: center;
   background: #fff;
