@@ -570,6 +570,9 @@ p { margin: 0 0 1rem; }
 .officer h3 { margin: 0 0 0.15rem; font-size: 1.2rem; }
 .officer .role { color: var(--red); font-weight: 700; font-size: 0.92rem; margin-bottom: 0.6rem; }
 .officer .bio { font-size: 0.92rem; color: var(--muted); margin: 0; }
+.officer .email { font-size: 0.85rem; margin: 0.1rem 0 0; }
+.officer .email a { color: var(--slate); font-weight: 500; word-break: break-word; }
+.officer .email a:hover { color: var(--red); }
 
 /* =====================================================================
    Events
