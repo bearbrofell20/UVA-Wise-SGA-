@@ -76,6 +76,10 @@
   var form = document.getElementById("contact-form");
   if (form) {
     var SGA_EMAIL = "sgapresident@uvawise.edu";
+    /* Paste a Formspree endpoint here (e.g. "https://formspree.io/f/xxxxxxxx")
+       to have messages delivered straight to the SGA inbox. While it is
+       empty, the form opens the sender's email app addressed to the SGA. */
+    var FORMSPREE_ENDPOINT = "";
     var emailField = form.querySelector("#email");
     var nameField = form.querySelector("#name");
     var msgField = form.querySelector("#message");
@@ -116,6 +120,29 @@
       var name = nameField ? nameField.value.trim() : "";
       var topic = topicField && topicField.value ? topicField.value : "Message";
       var message = msgField ? msgField.value.trim() : "";
+      var first = name.split(" ")[0] || "";
+
+      /* Preferred path: deliver to the SGA inbox through Formspree. */
+      if (FORMSPREE_ENDPOINT && window.fetch) {
+        if (submitBtn) submitBtn.disabled = true;
+        if (status) { status.textContent = "Sending…"; status.className = "form-status"; }
+        fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(form)
+        }).then(function (r) {
+          if (!r.ok) throw new Error("send failed");
+          if (status) { status.textContent = "Thanks" + (first ? ", " + first : "") + ". Your message has been sent to the SGA."; status.className = "form-status ok"; }
+          form.reset();
+          refresh();
+        }).catch(function () {
+          if (status) { status.textContent = "Sorry, that didn't go through. Please email " + SGA_EMAIL + " directly."; status.className = "form-status err"; }
+          if (submitBtn) submitBtn.disabled = false;
+        });
+        return;
+      }
+
+      /* Fallback: open the sender's email app addressed to the SGA. */
       var subject = "SGA Website: " + topic + (name ? " from " + name : "");
       var body = "Name: " + name + "\nEmail: " + emailField.value.trim() +
                  "\nTopic: " + topic + "\n\n" + message;
